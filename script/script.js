@@ -3,7 +3,6 @@
  * User: jeffrey
  * Date: 12/24/12
  * Time: 12:02 PM
- * To change this template use File | Settings | File Templates.
  */
 $( function () {
 
