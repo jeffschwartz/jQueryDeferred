@@ -3,6 +3,9 @@
  * User: jeffrey
  * Date: 12/24/12
  * Time: 12:02 PM
+ *
+ * The article by Jeremy Chone, at http://www.html5rocks.com/en/tutorials/async/deferred/,
+ * inspired me to explore jQuery.Deferred
  */
 $( function () {
 
