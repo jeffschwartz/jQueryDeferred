@@ -227,6 +227,12 @@ $( function () {
     logIt( "#example3", "calling getData3, getData4 using when and done and summing their returned integer values" );
     $.when( getData3(), getData4() ).done(
 
+        /*
+         * note - in the 'real' world, we might not know how
+         * many values to expect that need to be added for a total
+         * and if that were the case we could loop through all the arguments
+         * arguments.length times to generate the total.
+         */
         function () {
             logIt( "#example3", "getData3, getData4 returned a total of " + (arguments[0] + arguments[1]) );
         }
