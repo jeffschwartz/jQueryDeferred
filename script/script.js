@@ -4,18 +4,25 @@
  * Date: 12/24/12
  * Time: 12:02 PM
  *
- * The article by Jeremy Chone, at http://www.html5rocks.com/en/tutorials/async/deferred/,
- * inspired me to explore jQuery.Deferred
+ * My own article on Promises and Deferred, "Promises, Promises!" which can be found at <url here> was partially
+ * inspired by the following 2 articles:
+ * 1) The article by Jeremy Chone, at http://www.html5rocks.com/en/tutorials/async/deferred/
+ * 2) The article by Julian Aubourg and Addy Osmani, at http://msdn.microsoft.com/en-us/magazine/gg723713.aspx
+ * and by the song of the same name, by Naked Eyes, which you can listen to at
+ * http://www.youtube.com/watch?v=H8Q83DPZy6E
  */
 $( function () {
 
-    "use strict";
+    "use strict"; // of course!
 
     /*
-     * consider the code below library routines
+     * helper functions
      */
 
-    var logIt = function ( selector, val ) {
+    var logIt = function ( selector, val, err ) {
+        if ( err ) {
+            val = "<span style='color: rgba(255, 0, 0, .5)'>" + val + "</span> ";
+        }
         $( selector ).append( "<div>" + val + "</div>" );
         console.log( val );
     };
@@ -37,6 +44,10 @@ $( function () {
         return getRandom( 10 );
 
     };
+
+    /*
+     * consider the code below calls to remote library routines
+     */
 
     /*
      * simulate doing some time consuming task
@@ -181,7 +192,7 @@ $( function () {
     } );
 
     dataPromise.fail( function ( err ) {
-        logIt( "#example1", "getData1 failed: " + err );
+        logIt( "#example1", "getData1 failed: " + err, true );
     } );
 
     logIt( "#example1", "getData1 called!" );
@@ -197,7 +208,6 @@ $( function () {
      * based on one or more objects, usually Deferred
      * objects that represent asynchronous events
      */
-
     logIt( "#example2", "calling getData2 again using when and then" );
     $.when( getData2() ).then(
 
@@ -205,7 +215,7 @@ $( function () {
             logIt( "#example2", "getData2 returned " + data );
         },
         function ( err ) {
-            logIt( "#example2", "getData2 failed: " + err );
+            logIt( "#example2", "getData1 failed: " + err, true );
         }
     );
 
@@ -223,7 +233,6 @@ $( function () {
      * is performed only after all integer values have
      * been returned
      */
-
     logIt( "#example3", "calling getData3, getData4 using when and done and summing their returned integer values" );
     $.when( getData3(), getData4() ).done(
 
