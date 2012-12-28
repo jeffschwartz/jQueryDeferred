@@ -69,7 +69,7 @@ $( function () {
         var number = getInteger();
         logIt( "#example1", "getData1.number = " + number );
 
-        logIt( "#example1", "getData1 calling timeout" );
+        logIt( "#example1", "getData1 calling setTimeout" );
         setTimeout( function () {
             if ( number <= 5 ) {
                 logIt( "#example1", "getData1.number = " + number );
@@ -104,7 +104,7 @@ $( function () {
         var number = getInteger();
         logIt( "#example2", "getData2.number = " + number );
 
-        logIt( "#example2", "getData2 calling timeout" );
+        logIt( "#example2", "getData2 calling setTimeout" );
         setTimeout( function () {
             if ( number <= 5 ) {
                 logIt( "#example2", "getData2.number = " + number );
@@ -137,7 +137,7 @@ $( function () {
         var number = getInteger();
         logIt( "#example3", "getData3.number = " + number );
 
-        logIt( "#example3", "getData3 calling timeout" );
+        logIt( "#example3", "getData3 calling setTimeout" );
         setTimeout( function () {
             logIt( "#example3", "getData3.number = " + number );
             deferred.resolve( number );
@@ -165,7 +165,7 @@ $( function () {
         var number = getInteger();
         logIt( "#example3", "getData4.number = " + number );
 
-        logIt( "#example3", "getData4 calling timeout" );
+        logIt( "#example3", "getData4 calling setTimeout" );
         setTimeout( function () {
             logIt( "#example3", "getData4.number = " + number );
             deferred.resolve( number );
