@@ -58,6 +58,8 @@ $( function () {
      *  then generates a random number between 0 and 10
      *  if it is <= 5 calls Deferred.resolve
      *  otherwise it calls Deferred.fail
+     *
+     *  returns a promise
      */
     var getData1 = function () {
 
@@ -93,6 +95,8 @@ $( function () {
      *  then generates a random number between 0 and 10
      *  if it is <= 5 calls Deferred.resolve
      *  otherwise it calls Deferred.fail
+     *
+     *  returns a promise
      */
     var getData2 = function () {
 
@@ -126,6 +130,8 @@ $( function () {
      *
      *  simulates up to a 3 second delay
      *  then generates a random number between 0 and 10
+     *
+     *  returns a promise
      */
     var getData3 = function () {
 
@@ -154,6 +160,8 @@ $( function () {
      *
      *  simulates up to a 3 second delay
      *  then generates a random number between 0 and 10
+     *
+     *  returns a promise
      */
     var getData4 = function () {
 
@@ -176,6 +184,97 @@ $( function () {
     };
 
     /*
+     * simulate doing some time consuming task
+     * like making a remote api call or something
+     * of that nature
+     *
+     *  simulates up to a 3 second delay
+     *  then generates a random number between 0 and 10
+     *
+     *  returns a promise
+     */
+    var getData5 = function () {
+
+        var deferred = $.Deferred();
+
+        var delay = getDelay();
+        logIt( "#example4", "getData5.delay = " + delay );
+
+        var number = getInteger();
+        logIt( "#example4", "getData5.number = " + number );
+
+        logIt( "#example4", "getData5 calling setTimeout" );
+        setTimeout( function () {
+            logIt( "#example4", "getData5.number = " + number );
+            deferred.resolve( number );
+        }, delay * 1000 );
+
+        return deferred.promise();
+
+    };
+
+    /*
+     * simulate doing some time consuming task
+     * like making a remote api call or something
+     * of that nature
+     *
+     *  simulates up to a 3 second delay
+     *  then generates a random number between 0 and 10
+     *
+     *  returns a promise
+     */
+    var getData6 = function () {
+
+        var deferred = $.Deferred();
+
+        var delay = getDelay();
+        logIt( "#example4", "getData6.delay = " + delay );
+
+        var number = getInteger();
+        logIt( "#example4", "getData6.number = " + number );
+
+        logIt( "#example4", "getData6 calling setTimeout" );
+        setTimeout( function () {
+            logIt( "#example4", "getData6.number = " + number );
+            deferred.resolve( number );
+        }, delay * 1000 );
+
+        return deferred.promise();
+
+    };
+
+    /*
+     * sum a variable number of arguments asynchronously
+     *
+     * returns a promise
+     */
+    var getSum = function () {
+
+        var deferred = $.Deferred();
+
+        var args = arguments, argsLen = arguments.length, x;
+        for ( x = 0; x < argsLen; x += 1 ) {
+            logIt( "#example4", "arguments[" + x + "] = " + arguments[x] );
+        }
+
+        var delay = getDelay();
+        logIt( "#example4", "getSum.delay = " + delay );
+
+        logIt( "#example4", "getSum calling setTimeout" );
+        setTimeout( function () {
+            var sum = 0;
+            for ( x = 0; x < argsLen; x += 1 ) {
+                sum += args[x];
+            }
+            logIt( "#example4", "getSum sum = " + sum );
+            deferred.resolve( sum );
+        }, delay * 1000 );
+
+        return deferred.promise();
+
+    };
+
+    /*
      * consider the code below client code
      */
 
@@ -185,8 +284,9 @@ $( function () {
      * simplest use of Deferred
      * only 1 callback
      */
-    logIt( "#example1", "calling getData1 using promise.done & promise.fail" );
+    logIt( "#example1", "Example1: calling getData1 using promise.done & promise.fail" );
     var dataPromise = getData1();
+
     dataPromise.done( function ( data ) {
         logIt( "#example1", "getData1 returned " + data );
     } );
@@ -208,7 +308,8 @@ $( function () {
      * based on one or more objects, usually Deferred
      * objects that represent asynchronous events
      */
-    logIt( "#example2", "calling getData2 again using when and then" );
+    logIt( "#example2", "Example2: calling getData2 using when and then" );
+
     $.when( getData2() ).then(
 
         function ( data ) {
@@ -225,7 +326,7 @@ $( function () {
      * Example #3
      * a more contrived example of using Deferred
      * to make multiple asynchronous calls in parallel
-     * and sum the 2 integer values that are returned
+     * and then sum the 2 integer values that are returned
      * using $.when(...).done(...)
      * a more succinct and semantically expressive style
      *
@@ -233,7 +334,8 @@ $( function () {
      * is performed only after all integer values have
      * been returned
      */
-    logIt( "#example3", "calling getData3, getData4 using when and done and summing their returned integer values" );
+    logIt( "#example3", "Example3 calling getData3, getData4 using when and summing their returned integer values using done" );
+
     $.when( getData3(), getData4() ).done(
 
         /*
@@ -249,5 +351,25 @@ $( function () {
     );
 
     logIt( "#example3", "getData3, getData4 called!" );
+
+    /*
+     * Example #4
+     * a more contrived example of using Deferred
+     * to make multiple asynchronous calls in parallel
+     * and then sum the 2 integer values that are returned
+     * using $.when(...).pipe(...)
+     * a more succinct and semantically expressive style
+     *
+     * the summing, also done asynchronously,
+     * is performed only after all integer values have
+     * been returned
+     */
+    logIt( "#example4", "Example4: calling getData5, getData6 using when and summing their returned integer values using pipe" );
+
+    $.when( getData5(), getData6() ).pipe( getSum ).done( function ( sum ) {
+        logIt( "#example4", "getData5, getData6 returned a total of " + sum );
+    } );
+
+    logIt( "#example4", "getData5, getData6 called!" );
 
 } );
