@@ -19,6 +19,7 @@ $( function () {
      * helper functions
      */
 
+    // logging
     var logIt = function ( selector, val, err ) {
         if ( err ) {
             val = "<span style='color: rgba(255, 0, 0, .5)'>" + val + "</span> ";
@@ -27,18 +28,21 @@ $( function () {
         console.log( val );
     };
 
+    // random number generator
     var getRandom = function ( max ) {
 
         return Math.floor( Math.random() * (max + 1) );
 
     };
 
+    // a delay interval generator
     var getDelay = function () {
 
         return getRandom( 3 );
 
     };
 
+    // an integer generator
     var getInteger = function () {
 
         return getRandom( 10 );
@@ -46,7 +50,7 @@ $( function () {
     };
 
     /*
-     * consider the code below calls to remote library routines
+     * consider the code below as calls to remote library routines
      */
 
     /*
@@ -262,7 +266,7 @@ $( function () {
 
         logIt( "#example4", "getSum calling setTimeout" );
         setTimeout( function () {
-            var sum = 0;
+            var sum = 0, x, argsLen = args.length;
             for ( x = 0; x < argsLen; x += 1 ) {
                 sum += args[x];
             }
