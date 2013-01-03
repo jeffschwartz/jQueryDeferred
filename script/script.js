@@ -288,7 +288,8 @@ $( function () {
      * simplest use of Deferred
      * only 1 callback
      */
-    logIt( "#example1", "Example1: calling getData1 using promise.done & promise.fail" );
+//    logIt( "#example1", "Example1: calling getData1 using promise.done & promise.fail" );
+
     var dataPromise = getData1();
 
     dataPromise.done( function ( data ) {
@@ -312,7 +313,7 @@ $( function () {
      * based on one or more objects, usually Deferred
      * objects that represent asynchronous events
      */
-    logIt( "#example2", "Example2: calling getData2 using when and then" );
+//    logIt( "#example2", "Example2: calling getData2 using when and then" );
 
     $.when( getData2() ).then(
 
@@ -338,7 +339,7 @@ $( function () {
      * is performed only after all integer values have
      * been returned
      */
-    logIt( "#example3", "Example3 calling getData3, getData4 using when and summing their returned integer values using done" );
+//    logIt( "#example3", "Example3 calling getData3, getData4 using when and summing their returned integer values using done" );
 
     $.when( getData3(), getData4() ).done(
 
@@ -368,7 +369,7 @@ $( function () {
      * is performed only after all integer values have
      * been returned
      */
-    logIt( "#example4", "Example4: calling getData5, getData6 using when and summing their returned integer values using pipe" );
+//    logIt( "#example4", "Example4: calling getData5, getData6 using when and summing their returned integer values using pipe" );
 
     $.when( getData5(), getData6() ).pipe( getSum ).done( function ( sum ) {
         logIt( "#example4", "getData5, getData6 returned a total of " + sum );
