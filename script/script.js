@@ -58,12 +58,12 @@ $( function () {
      * like making a remote api call or something
      * of that nature
      *
-     *  simulates up to a 3 second delay
-     *  then generates a random number between 0 and 10
-     *  if it is <= 5 calls Deferred.resolve
-     *  otherwise it calls Deferred.fail
+     * simulates up to a 3 second delay
+     * then generates a random number between 0 and 10
+     * if it is <= 5 calls Deferred.resolve
+     * otherwise it calls Deferred.fail
      *
-     *  returns a promise
+     * returns a promise
      */
     var getData1 = function () {
 
@@ -95,12 +95,12 @@ $( function () {
      * like making a remote api call or something
      * of that nature
      *
-     *  simulates up to a 3 second delay
-     *  then generates a random number between 0 and 10
-     *  if it is <= 5 calls Deferred.resolve
-     *  otherwise it calls Deferred.fail
+     * simulates up to a 3 second delay
+     * then generates a random number between 0 and 10
+     * if it is <= 5 calls Deferred.resolve
+     * otherwise it calls Deferred.fail
      *
-     *  returns a promise
+     * returns a promise
      */
     var getData2 = function () {
 
@@ -132,10 +132,10 @@ $( function () {
      * like making a remote api call or something
      * of that nature
      *
-     *  simulates up to a 3 second delay
-     *  then generates a random number between 0 and 10
+     * simulates up to a 3 second delay
+     * then generates a random number between 0 and 10
      *
-     *  returns a promise
+     * returns a promise
      */
     var getData3 = function () {
 
@@ -162,10 +162,10 @@ $( function () {
      * like making a remote api call or something
      * of that nature
      *
-     *  simulates up to a 3 second delay
-     *  then generates a random number between 0 and 10
+     * simulates up to a 3 second delay
+     * then generates a random number between 0 and 10
      *
-     *  returns a promise
+     * returns a promise
      */
     var getData4 = function () {
 
@@ -192,10 +192,10 @@ $( function () {
      * like making a remote api call or something
      * of that nature
      *
-     *  simulates up to a 3 second delay
-     *  then generates a random number between 0 and 10
+     * simulates up to a 3 second delay
+     * then generates a random number between 0 and 10
      *
-     *  returns a promise
+     * returns a promise
      */
     var getData5 = function () {
 
@@ -222,10 +222,10 @@ $( function () {
      * like making a remote api call or something
      * of that nature
      *
-     *  simulates up to a 3 second delay
-     *  then generates a random number between 0 and 10
+     * simulates up to a 3 second delay
+     * then generates a random number between 0 and 10
      *
-     *  returns a promise
+     * returns a promise
      */
     var getData6 = function () {
 
