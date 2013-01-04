@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
     <title>jQuery Deferred</title>
     <style>
         body {
@@ -21,7 +22,6 @@
             font-size: 1.2rem;
             color: #aaa;
         }
-
     </style>
 </head>
 <body>
@@ -44,8 +44,8 @@
 
 <div class="console" id="example4"></div>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script src="script/script.js"></script>
+<!-- load require.js and tell it that script/script.js is our main script file to run -->
+<script data-main="script/script" src="script/require.js"></script>
 
 </body>
 </html>
