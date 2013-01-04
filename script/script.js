@@ -13,7 +13,7 @@
  * and by the song of the same name, by Naked Eyes, which you can listen to at
  * http://www.youtube.com/watch?v=H8Q83DPZy6E.
  *
- * My article fount at <url here> expands on the concepts presented in the above mentioned 2 articles by
+ * My article found at <url here> expands on the concepts presented in the above mentioned 2 articles by
  * showing by example how to use Deferred in your own functions.
  */
 
