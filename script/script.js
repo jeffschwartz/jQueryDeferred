@@ -11,7 +11,10 @@
  * 2) The article by Julian Aubourg and Addy Osmani, at http://msdn.microsoft.com/en-us/magazine/gg723713.aspx
  *
  * and by the song of the same name, by Naked Eyes, which you can listen to at
- * http://www.youtube.com/watch?v=H8Q83DPZy6E
+ * http://www.youtube.com/watch?v=H8Q83DPZy6E.
+ *
+ * My article fount at <url here> expands on the concepts presented in the above mentioned 2 articles by
+ * showing by example how to use Deferred in your own functions.
  */
 
 /*
