@@ -12,12 +12,20 @@
  * http://www.youtube.com/watch?v=H8Q83DPZy6E
  */
 
+/*
+ * require.js configuration
+ *
+ * load jquery.js from Google's CDN
+ */
 requirejs.config( {
     paths:{
         jquery:'http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min'
     }
 } );
 
+/*
+ * require that jquery be loaded prior to calling our main script which is passed $ as a parameter
+ */
 requirejs( ["jquery"], function ( $ ) {
 
     "use strict"; // of course!
