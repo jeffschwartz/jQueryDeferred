@@ -18,9 +18,9 @@
  */
 
 /*
- * require.js configuration
+ * Require.js configuration
  *
- * load jquery.js from Google's CDN
+ * Load jquery.js from Google's CDN
  */
 requirejs.config( {
     paths:{
@@ -29,7 +29,7 @@ requirejs.config( {
 } );
 
 /*
- * require that jquery be loaded prior to calling our main script which is passed $ as a parameter
+ * Require that jquery loads prior to calling our main script which is passed $ as a parameter.
  */
 requirejs( ["jquery"], function ( $ ) {
 
@@ -70,20 +70,20 @@ requirejs( ["jquery"], function ( $ ) {
     };
 
     /*
-     * consider the code below as calls to remote library routines
+     * Consider the code below as remote api calls.
      */
 
     /*
-     * simulate doing some time consuming task
+     * Simulate doing some time consuming task,
      * like making a remote api call or something
-     * of that nature
+     * of that nature.
      *
-     * simulates up to a 3 second delay
-     * then generates a random number between 0 and 10
-     * if it is <= 5 calls Deferred.resolve
-     * otherwise it calls Deferred.fail
+     * Simulates up to a 3 second delay,
+     * then generates a random number between 0 and 10.
+     * If it is <= 5 calls Deferred.resolve,
+     * otherwise it calls Deferred.fail.
      *
-     * returns a promise
+     * Returns a promise.
      */
     var getData1 = function () {
 
@@ -111,16 +111,16 @@ requirejs( ["jquery"], function ( $ ) {
     };
 
     /*
-     * simulate doing some time consuming task
+     * Simulate doing some time consuming task,
      * like making a remote api call or something
-     * of that nature
+     * of that nature.
      *
-     * simulates up to a 3 second delay
-     * then generates a random number between 0 and 10
-     * if it is <= 5 calls Deferred.resolve
-     * otherwise it calls Deferred.fail
+     * Simulates up to a 3 second delay,
+     * then generates a random number between 0 and 10.
+     * If it is <= 5 calls Deferred.resolve,
+     * otherwise it calls Deferred.fail.
      *
-     * returns a promise
+     * Returns a promise.
      */
     var getData2 = function () {
 
@@ -148,14 +148,14 @@ requirejs( ["jquery"], function ( $ ) {
     };
 
     /*
-     * simulate doing some time consuming task
+     * Simulate doing some time consuming task,
      * like making a remote api call or something
-     * of that nature
+     * of that nature.
      *
-     * simulates up to a 3 second delay
-     * then generates a random number between 0 and 10
+     * Simulates up to a 3 second delay,
+     * then generates a random number between 0 and 10.
      *
-     * returns a promise
+     * Returns a promise.
      */
     var getData3 = function () {
 
@@ -178,14 +178,14 @@ requirejs( ["jquery"], function ( $ ) {
     };
 
     /*
-     * simulate doing some time consuming task
+     * Simulate doing some time consuming task,
      * like making a remote api call or something
-     * of that nature
+     * of that nature.
      *
-     * simulates up to a 3 second delay
-     * then generates a random number between 0 and 10
+     * Simulates up to a 3 second delay,
+     * then generates a random number between 0 and 10.
      *
-     * returns a promise
+     * Returns a promise.
      */
     var getData4 = function () {
 
@@ -208,14 +208,14 @@ requirejs( ["jquery"], function ( $ ) {
     };
 
     /*
-     * simulate doing some time consuming task
+     * Simulate doing some time consuming task,
      * like making a remote api call or something
-     * of that nature
+     * of that nature.
      *
-     * simulates up to a 3 second delay
-     * then generates a random number between 0 and 10
+     * Simulates up to a 3 second delay,
+     * then generates a random number between 0 and 10.
      *
-     * returns a promise
+     * Returns a promise.
      */
     var getData5 = function () {
 
@@ -238,14 +238,14 @@ requirejs( ["jquery"], function ( $ ) {
     };
 
     /*
-     * simulate doing some time consuming task
+     * Simulate doing some time consuming task,
      * like making a remote api call or something
-     * of that nature
+     * of that nature.
      *
-     * simulates up to a 3 second delay
-     * then generates a random number between 0 and 10
+     * Simulates up to a 3 second delay,
+     * then generates a random number between 0 and 10.
      *
-     * returns a promise
+     * Returns a promise.
      */
     var getData6 = function () {
 
@@ -268,9 +268,9 @@ requirejs( ["jquery"], function ( $ ) {
     };
 
     /*
-     * sum a variable number of arguments asynchronously
+     * Sum a variable number of arguments asynchronously.
      *
-     * returns a promise
+     * Returns a promise.
      */
     var getSum = function () {
 
@@ -299,16 +299,15 @@ requirejs( ["jquery"], function ( $ ) {
     };
 
     /*
-     * consider the code below client code
+     * Consider the code below client code.
      */
 
 
     /*
      * Example #1
-     * simplest use of Deferred
-     * only 1 callback
+     * Simplest use of Deferred.
+     * Makes only 1 asynchronous api call.
      */
-//    logIt( "#example1", "Example1: calling getData1 using promise.done & promise.fail" );
 
     var dataPromise = getData1();
 
@@ -324,24 +323,22 @@ requirejs( ["jquery"], function ( $ ) {
 
     /*
      * Example #2
-     * simplest use of Deferred
-     * only 1 callback
-     * using $.when(...).then(...)
-     * a more succinct and semantically expressive style
+     * Simplest use of Deferred.
+     * Makes only 1 asynchronous api call.
+     * Using $.when(...).then(...),
+     * a more succinct and semantically expressive style.
      *
-     * when provides a way to execute callback functions
+     * $.when provides a way to execute callback functions
      * based on one or more objects, usually Deferred
-     * objects that represent asynchronous events
+     * objects that represent asynchronous events.
      */
-//    logIt( "#example2", "Example2: calling getData2 using when and then" );
-
     $.when( getData2() ).then(
 
         function ( data ) {
             logIt( "#example2", "getData2 returned " + data );
         },
         function ( err ) {
-            logIt( "#example2", "getData1 failed: " + err, true );
+            logIt( "#example2", "getData2 failed: " + err, true );
         }
     );
 
@@ -349,22 +346,20 @@ requirejs( ["jquery"], function ( $ ) {
 
     /*
      * Example #3
-     * a more contrived example of using Deferred
-     * to make multiple asynchronous calls in parallel
-     * and then sum the 2 integer values that are returned
-     * using $.when(...).done(...)
-     * a more succinct and semantically expressive style
+     * A more contrived example of using Deferred.
+     * Makes 2 asynchronous api calls in parallel
+     * and then sum the 2 integer values that are returned.
+     * Using $.when(...).done(...),
+     * a more succinct and semantically expressive style.
      *
-     * the summing, also done asynchronously,
+     * The summing, also done asynchronously,
      * is performed only after all integer values have
-     * been returned
+     * been returned.
      */
-//    logIt( "#example3", "Example3 calling getData3, getData4 using when and summing their returned integer values using done" );
-
     $.when( getData3(), getData4() ).done(
 
         /*
-         * note - in the 'real' world, we might not know how
+         * Note - in the 'real' world, we might not know how
          * many values to expect that need to be added for a total
          * and if that were the case we could loop through all the arguments
          * arguments.length times to generate the total.
@@ -379,18 +374,17 @@ requirejs( ["jquery"], function ( $ ) {
 
     /*
      * Example #4
-     * a more contrived example of using Deferred
-     * to make multiple asynchronous calls in parallel
-     * and then sum the 2 integer values that are returned
-     * using $.when(...).pipe(...)
-     * a more succinct and semantically expressive style
+     * A more contrived example of using Deferred.
+     * Makes 3 asynchronous api calls, 2 in parallel and
+     * 1 after the first 2 have run which sums the 2 integer
+     * values that are returned.
+     * Using $.when(...).pipe(...).done(...),
+     * a more succinct and semantically expressive style.
      *
-     * the summing, also done asynchronously,
+     * The summing, also done asynchronously,
      * is performed only after all integer values have
-     * been returned
+     * been returned.
      */
-//    logIt( "#example4", "Example4: calling getData5, getData6 using when and summing their returned integer values using pipe" );
-
     $.when( getData5(), getData6() ).pipe( getSum ).done( function ( sum ) {
         logIt( "#example4", "getData5, getData6 returned a total of " + sum );
     } );
