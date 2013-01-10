@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>jQuery Deferred</title>
+    <title>jQuery $.Deferred And Promise Examples</title>
     <style>
         body {
             font-size: 100%;
@@ -26,21 +26,21 @@
 </head>
 <body>
 
-<h1>jQuery Deferred Examples</h1>
+<h1>jQuery $.Deferred And Promise Examples</h1>
 
-<h2>Example #1 - calling getData1 using Promise.done & Promise.fail</h2>
+<h2>Example #1 - calling getData1 to obtain an integer using Promise.done & Promise.fail</h2>
 
 <div class="console" id="example1"></div>
 
-<h2>Example #2 - calling getData2 using $.when and Promise.then</h2>
+<h2>Example #2 - calling getData2 to obtain an integer using $.when and Promise.then</h2>
 
 <div class="console" id="example2"></div>
 
-<h2>Example #3 - calling getData3, getData4 using $.when and summing the 2 returned integer values using Promise.done</h2>
+<h2>Example #3 - calling getData3, getData4 in parallel to obtain 2 integer susing $.when and then summing the 2 returned integer values using Promise.done</h2>
 
 <div class="console" id="example3"></div>
 
-<h2>Example #4 - calling getData5, getData6 using $.when and summing the 2 returned integer values using Promise.then</h2>
+<h2>Example #4 - calling getData5, getData6 in parallel to obtain 2 integers using $.when and then calling getSum using Promise.then to sum the 2 returned integer values and obtaining the result using Promise.done</h2>
 
 <div class="console" id="example4"></div>
 

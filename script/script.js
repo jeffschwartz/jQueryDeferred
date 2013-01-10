@@ -83,7 +83,7 @@ requirejs( ["jquery"], function ( $ ) {
      * If it is <= 5 calls Deferred.resolve,
      * otherwise it calls Deferred.fail.
      *
-     * Returns a promise.
+     * Returns a promise to obtain the result
      */
     var getData1 = function () {
 
@@ -119,7 +119,7 @@ requirejs( ["jquery"], function ( $ ) {
      * If it is <= 5 calls Deferred.resolve,
      * otherwise it calls Deferred.fail.
      *
-     * Returns a promise.
+     * Returns a promise to obtain the result.
      */
     var getData2 = function () {
 
@@ -153,7 +153,7 @@ requirejs( ["jquery"], function ( $ ) {
      * Simulates up to a 3 second delay,
      * then generates a random number between 0 and 10.
      *
-     * Returns a promise.
+     * Returns a promise to obtain the result.
      */
     var getData3 = function () {
 
@@ -182,7 +182,7 @@ requirejs( ["jquery"], function ( $ ) {
      * Simulates up to a 3 second delay,
      * then generates a random number between 0 and 10.
      *
-     * Returns a promise.
+     * Returns a promise to obtain the result.
      */
     var getData4 = function () {
 
@@ -211,7 +211,7 @@ requirejs( ["jquery"], function ( $ ) {
      * Simulates up to a 3 second delay,
      * then generates a random number between 0 and 10.
      *
-     * Returns a promise.
+     * Returns a promise to obtain the result.
      */
     var getData5 = function () {
 
@@ -240,7 +240,7 @@ requirejs( ["jquery"], function ( $ ) {
      * Simulates up to a 3 second delay,
      * then generates a random number between 0 and 10.
      *
-     * Returns a promise.
+     * Returns a promise to obtain the result.
      */
     var getData6 = function () {
 
@@ -262,9 +262,7 @@ requirejs( ["jquery"], function ( $ ) {
     };
 
     /*
-     * Sum a variable number of arguments asynchronously.
-     *
-     * Returns a promise.
+     * Sum 2 integers asynchronously and returns a promise to obtain the result
      */
     var getSum = function ( val1, val2 ) {
 
@@ -277,7 +275,7 @@ requirejs( ["jquery"], function ( $ ) {
         setTimeout( function () {
             var sum = val1 + val2;
 
-//            deferred.notify( "#example4", "getSum sum = " + sum );
+            deferred.notify( "#example4", "getSum.sum = " + sum );
             deferred.resolve( sum );
         }, delay * 1000 );
 
@@ -291,7 +289,8 @@ requirejs( ["jquery"], function ( $ ) {
 
 
     /*
-     * Example #1
+     * Example #1 - calling getData1 to obtain an integer using Promise.done & Promise.fail
+     *
      * Simplest use of Deferred.
      * Makes only 1 asynchronous api call.
      */
@@ -313,7 +312,8 @@ requirejs( ["jquery"], function ( $ ) {
     logIt( "#example1", "getData1 called!" );
 
     /*
-     * Example #2
+     * Example #2 - calling getData2 to obtain an integer using $.when and Promise.then
+     *
      * Simplest use of Deferred.
      * Makes only 1 asynchronous api call.
      * Using $.when(...).then(...),
@@ -339,7 +339,9 @@ requirejs( ["jquery"], function ( $ ) {
     logIt( "#example2", "getData2 called!" );
 
     /*
-     * Example #3
+     * Example #3 - calling getData3, getData4 in parallel to obtain 2 integer susing $.when and then summing the 2
+     * returned integer values using Promise.done
+     *
      * A more contrived example of using Deferred.
      * Makes 2 asynchronous api calls in parallel
      * and then sum the 2 integer values that are returned.
@@ -375,7 +377,9 @@ requirejs( ["jquery"], function ( $ ) {
     logIt( "#example3", "getData3, getData4 called!" );
 
     /*
-     * Example #4
+     * Example #4 - calling getData5, getData6 in parallel to obtain 2 integers using $.when and then calling getSum
+     * using Promise.then to sum the 2 returned integer values and obtaining the result using Promise.done
+     *
      * A more contrived example of using Deferred.
      * Makes 3 asynchronous api calls, 2 in parallel and
      * 1 after the first 2 have run which sums the 2 integer
