@@ -4,7 +4,7 @@
  * Date: 12/24/12
  * Time: 12:02 PM
  *
- * My own article on Promises and Deferred, "Promises, Promises!" which can be found at <url here> was partially
+ * My own article on $.Promises and deferred, "Promises, Promises!" which can be found at <url here> was partially
  * inspired by the following 2 articles:
  *
  * 1) The article by Jeremy Chone, at http://www.html5rocks.com/en/tutorials/async/deferred/
@@ -14,7 +14,7 @@
  * http://www.youtube.com/watch?v=H8Q83DPZy6E.
  *
  * My article found at <url here> expands on the concepts presented in the above mentioned 2 articles by
- * showing by example how to use Deferred in your own functions.
+ * showing by example (see the code below) how to use $.Deferred and promise in your own functions.
  */
 
 /*
@@ -45,7 +45,7 @@ requirejs( ["jquery"], function ( $ ) {
             val = "<span style='color: rgba(255, 0, 0, .5)'>" + val + "</span> ";
         }
         $( selector ).append( "<div>" + val + "</div>" );
-        console.log( val );
+//        console.log( val );
     };
 
     // random number generator
@@ -90,18 +90,17 @@ requirejs( ["jquery"], function ( $ ) {
         var deferred = $.Deferred();
 
         var delay = getDelay();
-        logIt( "#example1", "getData1.delay = " + delay );
+        console.log( "Example #1 - getData1.delay = " + delay );
 
-        var number = getInteger();
-        logIt( "#example1", "getData1.number = " + number );
-
-        logIt( "#example1", "getData1 calling setTimeout" );
+        console.log( "Example #1 - getData1 calling setTimeout" );
         setTimeout( function () {
+            var number = getInteger();
+
             if ( number <= 5 ) {
-                logIt( "#example1", "getData1.number = " + number );
+                deferred.notify( "#example1", "getData1.number = " + number );
                 deferred.resolve( number );
             } else {
-                logIt( "#example1", "getData1.number > 5" );
+                deferred.notify( "#example1", "getData1.number = " + number + " > 5" );
                 deferred.reject( "getData1.number > 5" );
             }
         }, delay * 1000 );
@@ -127,18 +126,17 @@ requirejs( ["jquery"], function ( $ ) {
         var deferred = $.Deferred();
 
         var delay = getDelay();
-        logIt( "#example2", "getData2.delay = " + delay );
+        console.log( "Example #2 - getData2.delay = " + delay );
 
-        var number = getInteger();
-        logIt( "#example2", "getData2.number = " + number );
-
-        logIt( "#example2", "getData2 calling setTimeout" );
+        console.log( "Example #2 - getData2 calling setTimeout" );
         setTimeout( function () {
+            var number = getInteger();
+
             if ( number <= 5 ) {
-                logIt( "#example2", "getData2.number = " + number );
+                deferred.notify( "#example2", "getData2.number = " + number );
                 deferred.resolve( number );
             } else {
-                logIt( "#example2", "getData2.number > 5" );
+                deferred.notify( "#example2", "getData2.number = " + number + " > 5" );
                 deferred.reject( "getData2.number > 5" );
             }
         }, delay * 1000 );
@@ -162,14 +160,13 @@ requirejs( ["jquery"], function ( $ ) {
         var deferred = $.Deferred();
 
         var delay = getDelay();
-        logIt( "#example3", "getData3.delay = " + delay );
+        console.log( "Example #3 - getData3.delay = " + delay );
 
-        var number = getInteger();
-        logIt( "#example3", "getData3.number = " + number );
-
-        logIt( "#example3", "getData3 calling setTimeout" );
+        console.log( "Example #3 - getData3 calling setTimeout" );
         setTimeout( function () {
-            logIt( "#example3", "getData3.number = " + number );
+            var number = getInteger();
+
+            deferred.notify( "#example3", "getData3.number = " + number );
             deferred.resolve( number );
         }, delay * 1000 );
 
@@ -192,14 +189,13 @@ requirejs( ["jquery"], function ( $ ) {
         var deferred = $.Deferred();
 
         var delay = getDelay();
-        logIt( "#example3", "getData4.delay = " + delay );
+        console.log( "Example #3 - getData4.delay = " + delay );
 
-        var number = getInteger();
-        logIt( "#example3", "getData4.number = " + number );
-
-        logIt( "#example3", "getData4 calling setTimeout" );
+        console.log( "Example #3 - getData4 calling setTimeout" );
         setTimeout( function () {
-            logIt( "#example3", "getData4.number = " + number );
+            var number = getInteger();
+
+            deferred.notify( "#example3", "getData4.number = " + number );
             deferred.resolve( number );
         }, delay * 1000 );
 
@@ -222,14 +218,13 @@ requirejs( ["jquery"], function ( $ ) {
         var deferred = $.Deferred();
 
         var delay = getDelay();
-        logIt( "#example4", "getData5.delay = " + delay );
+        console.log( "Example #4 - getData5.delay = " + delay );
 
-        var number = getInteger();
-        logIt( "#example4", "getData5.number = " + number );
-
-        logIt( "#example4", "getData5 calling setTimeout" );
+        console.log( "Example #4 - getData5 calling setTimeout" );
         setTimeout( function () {
-            logIt( "#example4", "getData5.number = " + number );
+            var number = getInteger();
+
+            deferred.notify( "#example4", "getData5.number = " + number );
             deferred.resolve( number );
         }, delay * 1000 );
 
@@ -252,14 +247,13 @@ requirejs( ["jquery"], function ( $ ) {
         var deferred = $.Deferred();
 
         var delay = getDelay();
-        logIt( "#example4", "getData6.delay = " + delay );
+        console.log( "Example #4 - getData6.delay = " + delay );
 
-        var number = getInteger();
-        logIt( "#example4", "getData6.number = " + number );
-
-        logIt( "#example4", "getData6 calling setTimeout" );
+        console.log( "Example #4 - getData6 calling setTimeout" );
         setTimeout( function () {
-            logIt( "#example4", "getData6.number = " + number );
+            var number = getInteger();
+
+            deferred.notify( "#example4", "getData6.number = " + number );
             deferred.resolve( number );
         }, delay * 1000 );
 
@@ -272,25 +266,18 @@ requirejs( ["jquery"], function ( $ ) {
      *
      * Returns a promise.
      */
-    var getSum = function () {
+    var getSum = function ( val1, val2 ) {
 
         var deferred = $.Deferred();
 
-        var args = arguments, argsLen = arguments.length, x;
-        for ( x = 0; x < argsLen; x += 1 ) {
-            logIt( "#example4", "getSum arguments[" + x + "] = " + arguments[x] );
-        }
-
         var delay = getDelay();
-        logIt( "#example4", "getSum.delay = " + delay );
+        console.log( "Example #4 - getSum.delay = " + delay );
 
-        logIt( "#example4", "getSum calling setTimeout" );
+        console.log( "Example #4 - getSum calling setTimeout" );
         setTimeout( function () {
-            var sum = 0, x, argsLen = args.length;
-            for ( x = 0; x < argsLen; x += 1 ) {
-                sum += args[x];
-            }
-            logIt( "#example4", "getSum sum = " + sum );
+            var sum = val1 + val2;
+
+//            deferred.notify( "#example4", "getSum sum = " + sum );
             deferred.resolve( sum );
         }, delay * 1000 );
 
@@ -309,13 +296,17 @@ requirejs( ["jquery"], function ( $ ) {
      * Makes only 1 asynchronous api call.
      */
 
-    var dataPromise = getData1();
+    var dataPromise1 = getData1();
 
-    dataPromise.done( function ( data ) {
+    dataPromise1.progress( function ( selector, message, isError ) {
+        logIt( selector, message, isError );
+    } );
+
+    dataPromise1.done( function ( data ) {
         logIt( "#example1", "getData1 returned " + data );
     } );
 
-    dataPromise.fail( function ( err ) {
+    dataPromise1.fail( function ( err ) {
         logIt( "#example1", "getData1 failed: " + err, true );
     } );
 
@@ -339,6 +330,9 @@ requirejs( ["jquery"], function ( $ ) {
         },
         function ( err ) {
             logIt( "#example2", "getData2 failed: " + err, true );
+        },
+        function ( selector, message, isError ) {
+            logIt( selector, message, isError );
         }
     );
 
@@ -356,7 +350,15 @@ requirejs( ["jquery"], function ( $ ) {
      * is performed only after all integer values have
      * been returned.
      */
-    $.when( getData3(), getData4() ).done(
+    var dataPromise3 = getData3();
+    var dataPromise4 = getData4();
+    dataPromise3.progress( function ( selector, message ) {
+        logIt( selector, message );
+    } );
+    dataPromise4.progress( function ( selector, message ) {
+        logIt( selector, message );
+    } );
+    $.when( dataPromise3, dataPromise4 ).done(
 
         /*
          * Note - in the 'real' world, we might not know how
@@ -378,15 +380,59 @@ requirejs( ["jquery"], function ( $ ) {
      * Makes 3 asynchronous api calls, 2 in parallel and
      * 1 after the first 2 have run which sums the 2 integer
      * values that are returned.
-     * Using $.when(...).pipe(...).done(...),
+     * Using $.when(...).pipe(...).then(...).done(...),
      * a more succinct and semantically expressive style.
      *
      * The summing, also done asynchronously,
      * is performed only after all integer values have
      * been returned.
      */
-    $.when( getData5(), getData6() ).pipe( getSum ).done( function ( sum ) {
+    var dataPromise5 = getData5();
+    var dataPromise6 = getData6();
+    var getSumPromise = null;
+
+    dataPromise5.progress( function ( selector, message ) {
+        logIt( selector, message );
+    } );
+    dataPromise6.progress( function ( selector, message ) {
+        logIt( selector, message );
+    } );
+
+
+/*
+
+    You might think that we can do this:
+
+    chainedPromise = $.when( dataPromise5, dataPromise6 ).then( function ( val1, val2 ) {
+        return getSum( val1, val2 );
+    } );
+    chainedPromise.progress( function ( selector, message ) {
+        logIt( selector, message );
+    } );
+    chainedPromise.done( function ( sum ) {
         logIt( "#example4", "getData5, getData6 returned a total of " + sum );
+    } );
+
+    But we cannot. As per the docs for then:
+     As of jQuery 1.8, the deferred.then() method returns a new promise that can
+     filter the status and values of a deferred through a function, replacing the
+     now-deprecated deferred.pipe() method.
+    As the above documentation states, 'then' returns a _new_ promise, not the promise that
+    getSum returns. This is unfortunate and I hope that in a future release 'then' will
+    behave more like 'when' which returns a Promise from a new "master" Deferred object that
+    tracks the aggregate state of all the Deferreds it has been passed. Until then, the
+    solution I found to be the easiest is shown below.
+
+*/
+
+    $.when( dataPromise5, dataPromise6 ).then( function ( val1, val2 ) {
+        getSumPromise = getSum( val1, val2 );
+        getSumPromise.progress( function ( selector, message ) {
+            logIt( selector, message );
+        } );
+        getSumPromise.done( function ( sum ) {
+            logIt( "#example4", "getData5, getData6 returned a total of " + sum );
+        } );
     } );
 
     logIt( "#example4", "getData5, getData6 called!" );
