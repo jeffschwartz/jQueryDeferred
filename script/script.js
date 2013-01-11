@@ -4,17 +4,12 @@
  * Date: 12/24/12
  * Time: 12:02 PM
  *
- * My own article on $.Promises and deferred, "Promises, Promises!" which can be found at <url here> was partially
- * inspired by the following 2 articles:
+ * For background information on jQuery $.Deferred and Promise please read the following:
  *
- * 1) The article by Jeremy Chone, at http://www.html5rocks.com/en/tutorials/async/deferred/
- * 2) The article by Julian Aubourg and Addy Osmani, at http://msdn.microsoft.com/en-us/magazine/gg723713.aspx
+ * 1. jQuery Deferred documentation, at http://api.jquery.com/category/deferred-object/
+ * 2. The article by Jeremy Chone, at http://www.html5rocks.com/en/tutorials/async/deferred/
+ * 3. The article by Julian Aubourg and Addy Osmani, at http://msdn.microsoft.com/en-us/magazine/gg723713.aspx
  *
- * and by the song of the same name, by Naked Eyes, which you can listen to at
- * http://www.youtube.com/watch?v=H8Q83DPZy6E.
- *
- * My article found at <url here> expands on the concepts presented in the above mentioned 2 articles by
- * showing by example (see the code below) how to use $.Deferred and promise in your own functions.
  */
 
 /*
