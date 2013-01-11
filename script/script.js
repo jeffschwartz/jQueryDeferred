@@ -4,6 +4,8 @@
  * Date: 12/24/12
  * Time: 12:02 PM
  *
+ * Code examples covering various use cases of jQuery's $.Deferred and Promise:
+ *
  * For background information on jQuery $.Deferred and Promise please read the following:
  *
  * 1. jQuery Deferred documentation, at http://api.jquery.com/category/deferred-object/
