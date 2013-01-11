@@ -1,5 +1,5 @@
-jQueryDeferred
-==============
+jQuery $.Deferred and Promise
+=============================
 
 Code examples covering various use cases of jQuery's $.Deferred and Promise:
 
