@@ -45,7 +45,6 @@ requirejs( ["jquery"], function ( $ ) {
             val = "<span style='color: rgba(255, 0, 0, .5)'>" + val + "</span> ";
         }
         $( selector ).append( "<div>" + val + "</div>" );
-//        console.log( val );
     };
 
     // random number generator
