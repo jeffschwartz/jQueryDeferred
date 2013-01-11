@@ -441,5 +441,3 @@ requirejs( ["jquery"], function ( $ ) {
     logIt( "#example4", "getData5, getData6 called!" );
 
 } );
-
-
