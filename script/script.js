@@ -407,7 +407,7 @@ requirejs( ["jquery"], function ( $ ) {
     You might think that we can do this:
 
     chainedPromise = $.when( dataPromise5, dataPromise6 ).then( function ( val1, val2 ) {
-        return getSum( val1, val2 );
+        return getSum( val1, val2 ); // getSum returns a Promise object
     } );
     chainedPromise.progress( function ( selector, message ) {
         logIt( selector, message );
@@ -416,13 +416,15 @@ requirejs( ["jquery"], function ( $ ) {
         logIt( "#example4", "getData5, getData6 returned a total of " + sum );
     } );
 
-    But we cannot. As per the docs for then:
+    But we cannot because as per the docs for then() (http://api.jquery.com/deferred.then/):
+
      As of jQuery 1.8, the deferred.then() method returns a new promise that can
      filter the status and values of a deferred through a function, replacing the
      now-deprecated deferred.pipe() method.
-    As the above documentation states, 'then' returns a _new_ promise, not the promise that
-    getSum returns. This is unfortunate and I hope that in a future release 'then' will
-    behave more like 'when' which returns a Promise from a new "master" Deferred object that
+
+    As the above documentation states, then() returns a _new_ promise, not the promise that
+    getSum returns. This is unfortunate and I hope that in a future release then() will
+    behave more like when() which returns a Promise from a new "master" Deferred object that
     tracks the aggregate state of all the Deferreds it has been passed. Until then, the
     solution I found to be the easiest is shown below.
 
