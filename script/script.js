@@ -342,7 +342,7 @@ requirejs( ["jquery"], function ( $ ) {
     logIt( "#example2", "getData2 called!" );
 
     /*
-     * Example #3 - calling getData3, getData4 in parallel to obtain 2 integer susing $.when and then summing the 2
+     * Example #3 - calling getData3, getData4 in parallel to obtain 2 integers using $.when and then summing the 2
      * returned integer values using Promise.done
      *
      * A more contrived example of using Deferred.
