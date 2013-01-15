@@ -43,7 +43,6 @@ requirejs( ["jquery", "mockapi"], function ( $ ) {
      * Consider the code below client code.
      */
 
-
     /*
      * Example #1 - calling getData1 to obtain an integer using Promise.done & Promise.fail
      *
