@@ -18,3 +18,5 @@ For background information on jQuery's $.Deferred and Promise please read the fo
 2. The article by Jeremy Chone, at http://www.html5rocks.com/en/tutorials/async/deferred/
 
 3. The article by Julian Aubourg and Addy Osmani, at http://msdn.microsoft.com/en-us/magazine/gg723713.aspx
+
+Includes a full test suite using QUnit
