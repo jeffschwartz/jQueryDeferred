@@ -139,7 +139,7 @@ requirejs( ["jquery", "mockapi"], function ( $ ) {
      * Makes 3 asynchronous api calls, 2 in parallel and
      * 1 after the first 2 have run which sums the 2 integer
      * values that are returned.
-     * Using $.when(...).pipe(...).then(...).done(...),
+     * Using $.when(...).then(...),
      * a more succinct and semantically expressive style.
      *
      * The summing, also done asynchronously,
@@ -157,35 +157,34 @@ requirejs( ["jquery", "mockapi"], function ( $ ) {
         logIt( selector, message );
     } );
 
+    /*
 
-/*
+     You might think that we can now do this:
 
-    You might think that we can do this:
+     chainedPromise = $.when( dataPromise5, dataPromise6 ).then( function ( val1, val2 ) {
+     return getSum1( val1, val2 ); // getSum1 returns a Promise object
+     } );
+     chainedPromise.progress( function ( selector, message ) {
+     logIt( selector, message );
+     } );
+     chainedPromise.done( function ( sum ) {
+     logIt( "#example4", "getData5, getData6 returned a total of " + sum );
+     } );
 
-    chainedPromise = $.when( dataPromise5, dataPromise6 ).then( function ( val1, val2 ) {
-        return getSum( val1, val2 ); // getSum returns a Promise object
-    } );
-    chainedPromise.progress( function ( selector, message ) {
-        logIt( selector, message );
-    } );
-    chainedPromise.done( function ( sum ) {
-        logIt( "#example4", "getData5, getData6 returned a total of " + sum );
-    } );
+     However we cannot because as per the docs for then() (http://api.jquery.com/deferred.then/):
 
-    But we cannot because as per the docs for then() (http://api.jquery.com/deferred.then/):
+     As of jQuery 1.8, the deferred.then()'s filter functions can return a new value to be
+     passed along to the promise's .done() or .fail() callbacks, or they can return another
+     observable object (Deferred, Promise, etc) which will pass its resolved / rejected
+     status and values to the promise's callbacks.
 
-     As of jQuery 1.8, the deferred.then() method returns a new promise that can
-     filter the status and values of a deferred through a function, replacing the
-     now-deprecated deferred.pipe() method.
+     As the above documentation states, if then()'s filter functions return a Deferred or Promise
+     it will pass its resolved and rejected status and values to the promise's callbacks, but not
+     its progress in response to notify or notifyWith. This is unfortunate and I hope that in a
+     future release then() will also pass a returned Deferred object's progress as well. Until
+     then, you can use the solution below.
 
-    As the above documentation states, then() returns a _new_ promise, not the promise that
-    getSum returns. This is unfortunate and I hope that in a future release then() will
-    behave more like when() which returns a Promise from a new "master" Deferred object that
-    tracks the aggregate state of all the Deferreds it has been passed. Until then, the
-    solution I found to be the easiest is shown below.
-
-*/
-
+     */
     $.when( dataPromise5, dataPromise6 ).then( function ( val1, val2 ) {
         getSumPromise = getSum( val1, val2 );
         getSumPromise.progress( function ( selector, message ) {
