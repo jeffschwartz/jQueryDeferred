@@ -13,7 +13,7 @@ asyncTest( "getData1", 1, function () {
 
     var dataPromise = getData1();
     dataPromise.done( function ( data ) {
-        ok( typeof data == "number" && Math.floor(data) === data && data >= 0 && data <= 5, "getData1 has generated an integer: " + data );
+        ok( typeof data === "number" && Math.floor(data) === data && data >= 0 && data <= 5, "getData1 has generated an integer: " + data );
         start();
     } );
 
@@ -31,7 +31,7 @@ asyncTest( "getData2", 1, function () {
 
     var dataPromise = getData2();
     dataPromise.done( function ( data ) {
-        ok( typeof data == "number" && Math.floor(data) === data && data >= 0 && data <= 5, "getData2 has generated an integer: " + data );
+        ok( typeof data === "number" && Math.floor(data) === data && data >= 0 && data <= 5, "getData2 has generated an integer: " + data );
         start();
     } );
 
@@ -49,7 +49,7 @@ asyncTest( "getData3", 1, function () {
 
     var dataPromise = getData3();
     dataPromise.done( function ( data ) {
-        ok( typeof data == "number" && Math.floor(data) === data && data >= 0 && data <= 10, "getData3 has generated an integer: " + data );
+        ok( typeof data === "number" && Math.floor(data) === data && data >= 0 && data <= 10, "getData3 has generated an integer: " + data );
         start();
     } );
 
@@ -62,7 +62,7 @@ asyncTest( "getData4", 1, function () {
 
     var dataPromise = getData4();
     dataPromise.done( function ( data ) {
-        ok( typeof data == "number" && Math.floor(data) === data && data >= 0 && data <= 10, "getData4 has generated an integer: " + data );
+        ok( typeof data === "number" && Math.floor(data) === data && data >= 0 && data <= 10, "getData4 has generated an integer: " + data );
         start();
     } );
 
@@ -75,7 +75,7 @@ asyncTest( "getData5", 1, function () {
 
     var dataPromise = getData5();
     dataPromise.done( function ( data ) {
-        ok( typeof data == "number" && Math.floor(data) === data && data >= 0 && data <= 10, "getData5 has generated an integer: " + data );
+        ok( typeof data === "number" && Math.floor(data) === data && data >= 0 && data <= 10, "getData5 has generated an integer: " + data );
         start();
     } );
 
@@ -88,7 +88,7 @@ asyncTest( "getData6", 1, function () {
 
     var dataPromise = getData6();
     dataPromise.done( function ( data ) {
-        ok( typeof data == "number" && Math.floor(data) === data && data >= 0 && data <= 10, "getData6 has generated an integer: " + data );
+        ok( typeof data === "number" && Math.floor(data) === data && data >= 0 && data <= 10, "getData6 has generated an integer: " + data );
         start();
     } );
 
@@ -101,7 +101,7 @@ asyncTest( "getSum", 1, function () {
 
     var dataPromise = getSum( 10, 5 );
     dataPromise.done( function ( data ) {
-        ok( typeof data == "number" && Math.floor(data) === data && data >= 0 && data <= 20, "getSum has returned the sum of 2 integers: " + data );
+        ok( typeof data === "number" && Math.floor(data) === data && data >= 0 && data <= 20, "getSum has returned the sum of 2 integers: " + data );
         start();
     } );
 
